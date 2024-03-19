@@ -17,10 +17,10 @@
         
     </video>
     <div id="video-content">
-    <center><header style="background-color: #aa85b8; padding: 12px; position: fixed;top: 0;width: 100%; z-index: 99999;">        
-        <a href="inicio.html" style="color:#000000; text-decoration:underline;">Inicio</a>
-        <a href="jojo.html" style="color:#000000; text-decoration:underline;">Contacto</a>
-        <a href="doraemon.html" style="color:#000000; text-decoration:underline;">Sobre nosotros</a>
+    <center><header style="font-size:20px; background-color: #aa85b8; padding: 6px; position: fixed;top: 0;width: 100%; z-index: 99999;">        
+        <a href="inicio.html" style=" text-decoration:underline;">Inicio</a>
+        <a href="jojo.html" style=" text-decoration:underline;">Contacto</a>
+        <a href="doraemon.html" style=" text-decoration:underline;">Sobre nosotros</a>
     </header></center>
     
     <div class="container">
@@ -166,6 +166,17 @@
 
 <style>
 
+        a {
+            color: rgb(0, 0, 0); /* Default link color */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s ease; /* Add transition for color change */
+        }
+
+        /* Define the hover state for links */
+        a:hover {
+            color: rgb(255, 255, 255); /* Change link color on hover */
+        }
+
         #video-background {
             position: fixed;
             right: 0;
@@ -194,8 +205,8 @@
 
    .container {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 105px;
+    padding-left: 105px;
     padding-top: 115px;
     margin-right: auto;
     margin-left: auto;
