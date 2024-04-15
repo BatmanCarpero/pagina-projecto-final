@@ -164,10 +164,10 @@
         <h1 id="header-title">PEKKA</h1>
         <nav>
             <ul>
-                <li><a href="#" id="home-link">Home</a></li>
-                <li><a href="#" id="about-link">About</a></li>
-                <li><a href="#" id="services-link">Services</a></li>
-                <li><a href="#" id="contact-link">Contact</a></li>
+                <li><a href="#" id="home-link" onclick="loadText('home')">Home</a></li>
+                <li><a href="#" id="about-link" onclick="loadText('about')">About</a></li>
+                <li><a href="#" id="services-link" onclick="loadText('services')">Services</a></li>
+                <li><a href="#" id="contact-link" onclick="loadText('contact')">Contact</a></li>                
                 <li><a href="#" id="language-toggle">Language</a>
                     <div class="language-selector" id="language-selector">
                         <ul>
@@ -305,6 +305,111 @@
         if (selectedLanguage) {
             changeLanguage(selectedLanguage);
         }
+        switch (section) {
+        case 'home':
+            switch (selectedLanguage) {
+                case 'cat':
+                    aboutHeading.textContent = 'Sobre Pekka';
+                    description1.textContent = 'Pekka és un proveïdor líder de solucions tecnològiques educatives, especialitzat en la distribució d\'ordinadors i altres tecnologies avançades a escoles i centres educatius. La nostra missió és capacitar educadors i estudiants amb eines innovadores que millorin les experiències d\'aprenentatge i preparin les futures generacions per a l\'èxit a l\'era digital.';
+                    description2.textContent = 'Amb un equip dedicat d\'experts i un compromís amb la qualitat, Pekka esforça per oferir productes d\'avantguarda i un servei excepcional a institucions educatives de tot el món. Des de pissarres interactives fins a dispositius de tauleta i sistemes de realitat virtual, oferim una àmplia gamma de solucions adaptades per satisfer les necessitats diverses de les aules modernes.';
+                    description3.textContent = 'A Pekka, creiem que la tecnologia té el poder de revolucionar l\'educació i inspirar la creativitat, la col·laboració i el pensament crític. Mitjançant la col·laboració amb escoles i educadors, tenim com a objectiu fomentar una cultura d\'aprenentatge continu i equipar els estudiants amb les habilitats i coneixements necessaris per prosperar en un món en constant canvi.';
+                    break;
+                case 'esp':
+                    aboutHeading.textContent = 'Sobre Pekka';
+                    description1.textContent = 'Pekka es un proveedor líder de soluciones tecnológicas educativas, especializado en la distribución de computadoras y otras tecnologías avanzadas a escuelas y centros educativos. Nuestra misión es capacitar a educadores y estudiantes con herramientas innovadoras que mejoren las experiencias de aprendizaje y preparen a las futuras generaciones para el éxito en la era digital.';
+                    description2.textContent = 'Con un equipo dedicado de expertos y un compromiso con la calidad, Pekka se esfuerza por ofrecer productos de vanguardia y un servicio excepcional a instituciones educativas en todo el mundo. Desde pizarras interactivas hasta dispositivos de tableta y sistemas de realidad virtual, ofrecemos una amplia gama de soluciones adaptadas para satisfacer las diversas necesidades de las aulas modernas.';
+                    description3.textContent = 'En Pekka, creemos que la tecnología tiene el poder de revolucionar la educación e inspirar la creatividad, la colaboración y el pensamiento crítico. Mediante la colaboración con escuelas y educadores, nuestro objetivo es fomentar una cultura de aprendizaje continuo y equipar a los estudiantes con las habilidades y conocimientos necesarios para prosperar en un mundo en constante cambio.';
+                    break;
+                case 'eng':
+                    aboutHeading.textContent = 'About Pekka';
+                    description1.textContent = 'Pekka is a leading provider of educational technology solutions, specializing in distributing computers and other advanced technologies to schools and educational centers. Our mission is to empower educators and students with innovative tools that enhance learning experiences and prepare future generations for success in the digital age.';
+                    description2.textContent = 'With a dedicated team of experts and a commitment to quality, Pekka strives to deliver cutting-edge products and exceptional service to educational institutions worldwide. From interactive whiteboards to tablet devices and virtual reality systems, we offer a comprehensive range of solutions tailored to meet the diverse needs of modern classrooms.';
+                    description3.textContent = 'At Pekka, we believe that technology has the power to revolutionize education and inspire creativity, collaboration, and critical thinking. By partnering with schools and educators, we aim to foster a culture of lifelong learning and equip students with the skills and knowledge they need to thrive in an ever-changing world.';
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 'about':
+            // Update the text content for the 'about' section based on the selected language
+            switch (selectedLanguage) {
+                case 'cat':
+                    aboutHeading.textContent = 'Sobre Pekka';
+                    description1.textContent = 'Sobre text per a Pekka.';
+                    description2.textContent = 'Descripció addicional per a Pekka.';
+                    description3.textContent = 'Més detalls sobre Pekka.';
+                    break;
+                case 'esp':
+                    aboutHeading.textContent = 'Acerca de Pekka';
+                    description1.textContent = 'Texto sobre Pekka.';
+                    description2.textContent = 'Descripción adicional para Pekka.';
+                    description3.textContent = 'Más detalles sobre Pekka.';
+                    break;
+                case 'eng':
+                    aboutHeading.textContent = 'About Pekka';
+                    description1.textContent = 'About text for Pekka.';
+                    description2.textContent = 'Additional description for Pekka.';
+                    description3.textContent = 'More details about Pekka.';
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 'services':
+            // Update the text content for the 'services' section based on the selected language
+            switch (selectedLanguage) {
+                case 'cat':
+                    aboutHeading.textContent = 'Serveis Oferts';
+                    description1.textContent = 'Descripció dels serveis oferts per Pekka.';
+                    description2.textContent = 'Detalls sobre els serveis de Pekka.';
+                    description3.textContent = 'Més informació sobre els serveis.';
+                    break;
+                case 'esp':
+                    aboutHeading.textContent = 'Servicios Ofrecidos';
+                    description1.textContent = 'Descripción de los servicios proporcionados por Pekka.';
+                    description2.textContent = 'Detalles sobre los servicios de Pekka.';
+                    description3.textContent = 'Más información sobre servicios.';
+                    break;
+                case 'eng':
+                    aboutHeading.textContent = 'Services Offered';
+                    description1.textContent = 'Description of services provided by Pekka.';
+                    description2.textContent = 'Details about Pekka services.';
+                    description3.textContent = 'More information on services.';
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 'contact':
+            // Update the text content for the 'contact' section based on the selected language
+            switch (selectedLanguage) {
+                case 'cat':
+                    aboutHeading.textContent = 'Contacte amb nosaltres';
+                    description1.textContent = 'Informació de contacte per a Pekka.';
+                    description2.textContent = 'Com posar-se en contacte amb Pekka.';
+                    description3.textContent = 'Detalls sobre com contactar amb Pekka.';
+                    break;
+                case 'esp':
+                    aboutHeading.textContent = 'Contacto';
+                    description1.textContent = 'Información de contacto para Pekka.';
+                    description2.textContent = 'Cómo comunicarse con Pekka.';
+                    description3.textContent = 'Detalles sobre cómo contactar con Pekka.';
+                    break;
+                case 'eng':
+                    aboutHeading.textContent = 'Contact Us';
+                    description1.textContent = 'Contact information for Pekka.';
+                    description2.textContent = 'How to reach out to Pekka.';
+                    description3.textContent = 'Details on contacting Pekka.';
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            break;
+    }
+
+    
     </script>
 </body>
 </html>
