@@ -9,7 +9,6 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            
             opacity: 0; 
             animation: fadeInAnimation 1s ease forwards; 
         }
@@ -31,7 +30,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: top 0.3s; /* Transicion coso */
+            transition: top 0.3s; 
         }
 
         nav ul {
@@ -51,11 +50,13 @@
             color: #fff;
             text-decoration: none;
             position: relative;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, font-size 0.3s ease;
+            font-size: 16px;
         }
 
         nav ul li a:hover {
-            color: #797979; /* color mas oscuro al pasar raton */
+            color: #797979; 
+            font-size: 24px;
         }
 
         .language-selector {
@@ -92,8 +93,11 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            font-size: 16px;
         }
-
+        .language-selector ul li a:hover {
+          font-size: inherit; /* Use the font size inherited from the parent */
+        }
         .language-selector ul li img {
             margin-right: 5px;
             width: 20px; 
@@ -133,7 +137,7 @@
         }
 
         .hidden-header {
-            top: -80px; /* posicion del header despues de bajar*/
+            top: -80px;
         }
         #affiliated-companies {
             background-color: #fdfdfd;
@@ -157,9 +161,24 @@
             max-width: 150px;
             max-height: 100px;
         }
+
+        /* Additional class for fade-in animation */
+        .fadeInContent {
+            opacity: 0;
+            animation: fadeInContentAnimation 1s ease forwards;
+        }
+
+        @keyframes fadeInContentAnimation {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
-<body>
+<body id="Confronting-Yourself">
     <header id="main-header">
         <h1 id="header-title">PEKKA</h1>
         <nav>
@@ -171,9 +190,9 @@
                 <li><a href="#" id="language-toggle">Language</a>
                     <div class="language-selector" id="language-selector">
                         <ul>
-                            <li><a href="#" onclick="changeLanguage('cat')"><img src="cat.png" alt="catala"> Catalan</a></li>
-                            <li><a href="#" onclick="changeLanguage('esp')"><img src="esp.png" alt="espanyol"> Spanish</a></li>
-                            <li><a href="#" onclick="changeLanguage('eng')"><img src="eng.png" alt="angles"> English</a></li>
+                            <li><a href="#" onclick="changeLanguage('ca')"><img src="cat.png" alt="catala">Catalan</a></li>
+                            <li><a href="#" onclick="changeLanguage('es')"><img src="esp.png" alt="espanyol">Spanish</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')"><img src="eng.png" alt="angles">English</a></li>
                         </ul>
                     </div>
                 </li>
@@ -185,231 +204,100 @@
             <source src="trabajal.mp4" type="video/mp4">
         </video>
     </div>
-    <!-- Description of the company "Pekka" -->
     <section id="company-description" style="padding: 50px;">
         <h2 id="about-heading">About Pekka</h2>
-        <p id="description-1">Pekka is a leading provider of educational technology solutions, specializing in distributing computers and other advanced technologies to schools and educational centers. Our mission is to empower educators and students with innovative tools that enhance learning experiences and prepare future generations for success in the digital age.</p>
-        <p id="description-2">With a dedicated team of experts and a commitment to quality, Pekka strives to deliver cutting-edge products and exceptional service to educational institutions worldwide. From interactive whiteboards to tablet devices and virtual reality systems, we offer a comprehensive range of solutions tailored to meet the diverse needs of modern classrooms.</p>
-        <p id="description-3">At Pekka, we believe that technology has the power to revolutionize education and inspire creativity, collaboration, and critical thinking. By partnering with schools and educators, we aim to foster a culture of lifelong learning and equip students with the skills and knowledge they need to thrive in an ever-changing world.</p>
+        <p id="description">Pekka is a leading provider of educational technology solutions, specializing in distributing computers and other advanced technologies to schools and educational centers. Our mission is to empower educators and students with innovative tools that enhance learning experiences and prepare future generations for success in the digital age. With a dedicated team of experts and a commitment to quality, Pekka strives to deliver cutting-edge products and exceptional service to educational institutions worldwide. From interactive whiteboards to tablet devices and virtual reality systems, we offer a comprehensive range of solutions tailored to meet the diverse needs of modern classrooms. At Pekka, we believe that technology has the power to revolutionize education and inspire creativity, collaboration, and critical thinking. By partnering with schools and educators, we aim to foster a culture of lifelong learning and equip students with the skills and knowledge they need to thrive in an ever-changing world.</p>
     </section>
 
-    <!-- Affiliated Companies Section -->
     <section id="affiliated-companies">
-    <h2 id="affiliated-heading">Affiliated Companies</h2>
-    <!-- Add your affiliated companies text here -->
-    <p id="affiliated-text">Text describing affiliated companies.</p>
-
-    <!-- New section for displaying company logos -->
-    <div class="company-logos">
-        <div class="company-logo">
-            <img src="stn.png" alt="Company 1">
+        <h2 id="affiliated-heading">Affiliated Companies</h2>
+        <p id="affiliated-text">Text describing affiliated companies.</p>
+        <div class="company-logos">
+            <div class="company-logo">
+                <img src="stn.png" alt="Company 1">
+            </div>
+            <div class="company-logo">
+                <img src="si.png" alt="Company 2">
+            </div>
+            <div class="company-logo">
+                <img src="ram.png" alt="Company 3">
+            </div>
         </div>
-        <div class="company-logo">
-            <img src="si.png" alt="Company 2">
-        </div>
-        <div class="company-logo">
-            <img src="ram.png" alt="Company 3">
-        </div>
-    </div>
     </section>
 
     <script>
-        let lastScrollTop = 0;
-        const header = document.getElementById("main-header");
-        const languageToggle = document.getElementById("language-toggle");
-
-        window.addEventListener("scroll", function() {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (currentScroll > lastScrollTop) {
-                header.classList.add("hidden-header");
-            } else {
-                header.classList.remove("hidden-header");
-            }
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        });
-
-        function changeLanguage(lang) {
-            const headerTitle = document.getElementById("header-title");
-            const homeLink = document.getElementById("home-link");
-            const aboutLink = document.getElementById("about-link");
-            const servicesLink = document.getElementById("services-link");
-            const contactLink = document.getElementById("contact-link");
-            const languageToggleText = document.getElementById("language-toggle");
-            const aboutHeading = document.getElementById("about-heading");
-            const description1 = document.getElementById("description-1");
-            const description2 = document.getElementById("description-2");
-            const description3 = document.getElementById("description-3");
-            const affiliatedHeading = document.getElementById("affiliated-heading");
-            const affiliatedText = document.getElementById("affiliated-text");
-
-            // Store selected language in a cookie with a one-year expiry date
-            document.cookie = `selectedLanguage=${lang}; max-age=${60 * 60 * 24 * 365}; path=/`;
-
-            // Update page content based on selected language
-            switch (lang) {
-                case 'cat':
-                    headerTitle.textContent = 'PEKKA';
-                    homeLink.textContent = 'Inici';
-                    aboutLink.textContent = 'Sobre nosaltres';
-                    servicesLink.textContent = 'Serveis';
-                    contactLink.textContent = 'Contacte';
-                    languageToggleText.textContent = 'Idioma';
-                    aboutHeading.textContent = 'Sobre Pekka';
-                    description1.textContent = 'Pekka és un proveïdor líder de solucions tecnològiques educatives, especialitzat en la distribució d\'ordinadors i altres tecnologies avançades a escoles i centres educatius. La nostra missió és capacitar educadors i estudiants amb eines innovadores que millorin les experiències d\'aprenentatge i preparin les futures generacions per a l\'èxit a l\'era digital.';
-                    description2.textContent = 'Amb un equip dedicat d\'experts i un compromís amb la qualitat, Pekka esforça per oferir productes d\' avantguarda i un servei excepcional a institucions educatives de tot el món. Des de pissarres interactives fins a dispositius de tauleta i sistemes de realitat virtual, oferim una àmplia gamma de solucions adaptades per satisfer les necessitats diverses de les aules modernes.';
-                    description3.textContent = 'A Pekka, creiem que la tecnologia té el poder de revolucionar l\'educació i inspirar la creativitat, la col·laboració i el pensament crític. Mitjançant la col·laboració amb escoles i educadors, tenim com a objectiu fomentar una cultura d\'aprenentatge continu i equipar els estudiants amb les habilitats i coneixements necessaris per prosperar en un món en constant canvi.';
-                    affiliatedHeading.textContent = 'Empreses Afiliades';
-                    affiliatedText.textContent = 'Text que descriu les empreses afiliades.';
-                    break;
-                case 'esp':
-                    headerTitle.textContent = 'PEKKA';
-                    homeLink.textContent = 'Inicio';
-                    aboutLink.textContent = 'Sobre nosotros';
-                    servicesLink.textContent = 'Servicios';
-                    contactLink.textContent = 'Contacto';
-                    languageToggleText.textContent = 'Idioma';
-                    aboutHeading.textContent = 'Sobre Pekka';
-                    description1.textContent = 'Pekka es un proveedor líder de soluciones tecnológicas educativas, especializado en la distribución de computadoras y otras tecnologías avanzadas a escuelas y centros educativos. Nuestra misión es capacitar a educadores y estudiantes con herramientas innovadoras que mejoren las experiencias de aprendizaje y preparen a las futuras generaciones para el éxito en la era digital.';
-                    description2.textContent = 'Con un equipo dedicado de expertos y un compromiso con la calidad, Pekka se esfuerza por ofrecer productos de vanguardia y un servicio excepcional a instituciones educativas en todo el mundo. Desde pizarras interactivas hasta dispositivos de tableta y sistemas de realidad virtual, ofrecemos una amplia gama de soluciones adaptadas para satisfacer las diversas necesidades de las aulas modernas.';
-                    description3.textContent = 'En Pekka, creemos que la tecnología tiene el poder de revolucionar la educación e inspirar la creatividad, la colaboración y el pensamiento crítico. Mediante la colaboración con escuelas y educadores, nuestro objetivo es fomentar una cultura de aprendizaje continuo y equipar a los estudiantes con las habilidades y conocimientos necesarios para prosperar en un mundo en constante cambio.';
-                    affiliatedHeading.textContent = 'Empresas Afiliadas';
-                    affiliatedText.textContent = 'Texto que describe las empresas afiliadas.';
-                    break;
-                case 'eng':
-                    headerTitle.textContent = 'PEKKA';
-                    homeLink.textContent = 'Home';
-                    aboutLink.textContent = 'About Us';
-                    servicesLink.textContent = 'Services';
-                    contactLink.textContent = 'Contact';
-                    languageToggleText.textContent = 'Language';
-                    aboutHeading.textContent = 'About Pekka';
-                    description1.textContent = 'Pekka is a leading provider of educational technology solutions, specializing in distributing computers and other advanced technologies to schools and educational centers. Our mission is to empower educators and students with innovative tools that enhance learning experiences and prepare future generations for success in the digital age.';
-                    description2.textContent = 'With a dedicated team of experts and a commitment to quality, Pekka strives to deliver cutting-edge products and exceptional service to educational institutions worldwide. From interactive whiteboards to tablet devices and virtual reality systems, we offer a comprehensive range of solutions tailored to meet the diverse needs of modern classrooms.';
-                    description3.textContent = 'At Pekka, we believe that technology has the power to revolutionize education and inspire creativity, collaboration, and critical thinking. By partnering with schools and educators, we aim to foster a culture of lifelong learning and equip students with the skills and knowledge they need to thrive in an ever-changing world.';
-                    affiliatedHeading.textContent = 'Affiliated Companies';
-                    affiliatedText.textContent = 'Text describing affiliated companies.';
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-
-        const selectedLanguage = getCookie('selectedLanguage');
-        if (selectedLanguage) {
-            changeLanguage(selectedLanguage);
-        }
-        switch (section) {
-        case 'home':
-            switch (selectedLanguage) {
-                case 'cat':
-                    aboutHeading.textContent = 'Sobre Pekka';
-                    description1.textContent = 'Pekka és un proveïdor líder de solucions tecnològiques educatives, especialitzat en la distribució d\'ordinadors i altres tecnologies avançades a escoles i centres educatius. La nostra missió és capacitar educadors i estudiants amb eines innovadores que millorin les experiències d\'aprenentatge i preparin les futures generacions per a l\'èxit a l\'era digital.';
-                    description2.textContent = 'Amb un equip dedicat d\'experts i un compromís amb la qualitat, Pekka esforça per oferir productes d\'avantguarda i un servei excepcional a institucions educatives de tot el món. Des de pissarres interactives fins a dispositius de tauleta i sistemes de realitat virtual, oferim una àmplia gamma de solucions adaptades per satisfer les necessitats diverses de les aules modernes.';
-                    description3.textContent = 'A Pekka, creiem que la tecnologia té el poder de revolucionar l\'educació i inspirar la creativitat, la col·laboració i el pensament crític. Mitjançant la col·laboració amb escoles i educadors, tenim com a objectiu fomentar una cultura d\'aprenentatge continu i equipar els estudiants amb les habilitats i coneixements necessaris per prosperar en un món en constant canvi.';
-                    break;
-                case 'esp':
-                    aboutHeading.textContent = 'Sobre Pekka';
-                    description1.textContent = 'Pekka es un proveedor líder de soluciones tecnológicas educativas, especializado en la distribución de computadoras y otras tecnologías avanzadas a escuelas y centros educativos. Nuestra misión es capacitar a educadores y estudiantes con herramientas innovadoras que mejoren las experiencias de aprendizaje y preparen a las futuras generaciones para el éxito en la era digital.';
-                    description2.textContent = 'Con un equipo dedicado de expertos y un compromiso con la calidad, Pekka se esfuerza por ofrecer productos de vanguardia y un servicio excepcional a instituciones educativas en todo el mundo. Desde pizarras interactivas hasta dispositivos de tableta y sistemas de realidad virtual, ofrecemos una amplia gama de soluciones adaptadas para satisfacer las diversas necesidades de las aulas modernas.';
-                    description3.textContent = 'En Pekka, creemos que la tecnología tiene el poder de revolucionar la educación e inspirar la creatividad, la colaboración y el pensamiento crítico. Mediante la colaboración con escuelas y educadores, nuestro objetivo es fomentar una cultura de aprendizaje continuo y equipar a los estudiantes con las habilidades y conocimientos necesarios para prosperar en un mundo en constante cambio.';
-                    break;
-                case 'eng':
-                    aboutHeading.textContent = 'About Pekka';
-                    description1.textContent = 'Pekka is a leading provider of educational technology solutions, specializing in distributing computers and other advanced technologies to schools and educational centers. Our mission is to empower educators and students with innovative tools that enhance learning experiences and prepare future generations for success in the digital age.';
-                    description2.textContent = 'With a dedicated team of experts and a commitment to quality, Pekka strives to deliver cutting-edge products and exceptional service to educational institutions worldwide. From interactive whiteboards to tablet devices and virtual reality systems, we offer a comprehensive range of solutions tailored to meet the diverse needs of modern classrooms.';
-                    description3.textContent = 'At Pekka, we believe that technology has the power to revolutionize education and inspire creativity, collaboration, and critical thinking. By partnering with schools and educators, we aim to foster a culture of lifelong learning and equip students with the skills and knowledge they need to thrive in an ever-changing world.';
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 'about':
-            // Update the text content for the 'about' section based on the selected language
-            switch (selectedLanguage) {
-                case 'cat':
-                    aboutHeading.textContent = 'Sobre Pekka';
-                    description1.textContent = 'Sobre text per a Pekka.';
-                    description2.textContent = 'Descripció addicional per a Pekka.';
-                    description3.textContent = 'Més detalls sobre Pekka.';
-                    break;
-                case 'esp':
-                    aboutHeading.textContent = 'Acerca de Pekka';
-                    description1.textContent = 'Texto sobre Pekka.';
-                    description2.textContent = 'Descripción adicional para Pekka.';
-                    description3.textContent = 'Más detalles sobre Pekka.';
-                    break;
-                case 'eng':
-                    aboutHeading.textContent = 'About Pekka';
-                    description1.textContent = 'About text for Pekka.';
-                    description2.textContent = 'Additional description for Pekka.';
-                    description3.textContent = 'More details about Pekka.';
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 'services':
-            // Update the text content for the 'services' section based on the selected language
-            switch (selectedLanguage) {
-                case 'cat':
-                    aboutHeading.textContent = 'Serveis Oferts';
-                    description1.textContent = 'Descripció dels serveis oferts per Pekka.';
-                    description2.textContent = 'Detalls sobre els serveis de Pekka.';
-                    description3.textContent = 'Més informació sobre els serveis.';
-                    break;
-                case 'esp':
-                    aboutHeading.textContent = 'Servicios Ofrecidos';
-                    description1.textContent = 'Descripción de los servicios proporcionados por Pekka.';
-                    description2.textContent = 'Detalles sobre los servicios de Pekka.';
-                    description3.textContent = 'Más información sobre servicios.';
-                    break;
-                case 'eng':
-                    aboutHeading.textContent = 'Services Offered';
-                    description1.textContent = 'Description of services provided by Pekka.';
-                    description2.textContent = 'Details about Pekka services.';
-                    description3.textContent = 'More information on services.';
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 'contact':
-            // Update the text content for the 'contact' section based on the selected language
-            switch (selectedLanguage) {
-                case 'cat':
-                    aboutHeading.textContent = 'Contacte amb nosaltres';
-                    description1.textContent = 'Informació de contacte per a Pekka.';
-                    description2.textContent = 'Com posar-se en contacte amb Pekka.';
-                    description3.textContent = 'Detalls sobre com contactar amb Pekka.';
-                    break;
-                case 'esp':
-                    aboutHeading.textContent = 'Contacto';
-                    description1.textContent = 'Información de contacto para Pekka.';
-                    description2.textContent = 'Cómo comunicarse con Pekka.';
-                    description3.textContent = 'Detalles sobre cómo contactar con Pekka.';
-                    break;
-                case 'eng':
-                    aboutHeading.textContent = 'Contact Us';
-                    description1.textContent = 'Contact information for Pekka.';
-                    description2.textContent = 'How to reach out to Pekka.';
-                    description3.textContent = 'Details on contacting Pekka.';
-                    break;
-                default:
-                    break;
-            }
-            break;
-        default:
-            break;
-    }
-
+        // Function to add fade-in animation to the main content
+        function fadeInAnimation() {
+       const content = document.getElementById('Confronting-Yourself');
+       content.classList.remove('fadeInContent'); // Remove the class if it exists
+        void content.offsetWidth; // Trigger reflow to restart the animation
+      content.classList.add('fadeInContent'); // Add the class again
+}
     
+        // Get all links and add click event listeners
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', fadeInAnimation);
+        });
+    
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 0) {
+                header.style.top = '-80px'; // Move the header up by 80 pixels
+            } else {
+                header.style.top = '0'; // Move the header back to its original position
+            }
+        });
+    
+        const texts = {
+            en: {
+                home: "Home",
+                about: "About",
+                services: "Services",
+                contact: "Contact",
+                language: "Language"
+            },
+            es: {
+                home: "Inicio",
+                about: "Sobre nosotros",
+                services: "Servicios",
+                contact: "Contacto",
+                language: "Idioma"
+            },
+            ca: {
+                home: "Inici",
+                about: "Sobre nosaltres",
+                services: "Serveis",
+                contact: "Contacte",
+                language: "Idioma"
+            }
+        };
+    
+        function loadText(section) {
+            const selectedLanguage = document.documentElement.lang;
+            document.getElementById("home-link").textContent = texts[selectedLanguage].home;
+            document.getElementById("about-link").textContent = texts[selectedLanguage].about;
+            document.getElementById("services-link").textContent = texts[selectedLanguage].services;
+            document.getElementById("contact-link").textContent = texts[selectedLanguage].contact;
+            document.getElementById("language-toggle").textContent = texts[selectedLanguage].language;
+    
+            document.getElementById("description").innerText = texts[selectedLanguage][section];
+        }
+    
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            const currentSection = getCurrentSection();
+            loadText(currentSection);
+        }
+    
+        function getCurrentSection() {
+            return 'home';
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentSection = getCurrentSection();
+            loadText(currentSection);
+        });
     </script>
 </body>
 </html>
