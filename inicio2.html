@@ -96,7 +96,7 @@
             font-size: 16px;
         }
         .language-selector ul li a:hover {
-          font-size: inherit; /* Use the font size inherited from the parent */
+          font-size: inherit;
         }
         .language-selector ul li img {
             margin-right: 5px;
@@ -162,7 +162,6 @@
             max-height: 100px;
         }
 
-        /* Additional class for fade-in animation */
         .fadeInContent {
             opacity: 0;
             animation: fadeInContentAnimation 1s ease forwards;
@@ -226,15 +225,13 @@
     </section>
 
     <script>
-        // Function to add fade-in animation to the main content
         function fadeInAnimation() {
        const content = document.getElementById('Confronting-Yourself');
-       content.classList.remove('fadeInContent'); // Remove the class if it exists
-        void content.offsetWidth; // Trigger reflow to restart the animation
-      content.classList.add('fadeInContent'); // Add the class again
+       content.classList.remove('fadeInContent');
+        void content.offsetWidth;
+      content.classList.add('fadeInContent');
 }
     
-        // Get all links and add click event listeners
         const links = document.querySelectorAll('a');
         links.forEach(link => {
             link.addEventListener('click', fadeInAnimation);
@@ -243,9 +240,9 @@
         window.addEventListener('scroll', function() {
             const header = document.getElementById('main-header');
             if (window.scrollY > 0) {
-                header.style.top = '-80px'; // Move the header up by 80 pixels
+                header.style.top = '-80px'; 
             } else {
-                header.style.top = '0'; // Move the header back to its original position
+                header.style.top = '0';
             }
         });
     
