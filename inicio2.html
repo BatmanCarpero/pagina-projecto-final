@@ -190,8 +190,8 @@
                     <div class="language-selector" id="language-selector">
                         <ul>
                             <li><a href="#" onclick="changeLanguage('ca')"><img src="cat.png" alt="catala">Catalan</a></li>
-                            <li><a href="#" onclick="changeLanguage('es')"><img src="esp.png" alt="espanyol">Spanish</a></li>
                             <li><a href="#" onclick="changeLanguage('en')"><img src="eng.png" alt="angles">English</a></li>
+                            <li><a href="#" onclick="changeLanguage('es')"><img src="esp.png" alt="espanyol">Spanish</a></li>
                         </ul>
                     </div>
                 </li>
@@ -225,18 +225,69 @@
     </section>
 
     <script>
+        const texts = {
+            en: {
+                home: "Home",
+                about: "About",
+                services: "Services",
+                contact: "Contact",
+                language: "Language",
+                aboutPekka: "About Pekka",
+                servicesPekka: "Our Services",
+                contactPekka: "Contact Us",
+                affiliatedCompanies: "Affiliated Companies",
+                affiliatedText: "Several esteemed companies have placed their trust in us due to our exceptional product quality, attention to detail, and commitment to innovation.",
+                description: "Pekka is a leading provider of educational technology solutions, specializing in distributing computers and other advanced technologies to schools and educational centers. Our mission is to empower educators and students with innovative tools that enhance learning experiences and prepare future generations for success in the digital age. With a dedicated team of experts and a commitment to quality, Pekka strives to deliver cutting-edge products and exceptional service to educational institutions worldwide. From interactive whiteboards to tablet devices and virtual reality systems, we offer a comprehensive range of solutions tailored to meet the diverse needs of modern classrooms. At Pekka, we believe that technology has the power to revolutionize education and inspire creativity, collaboration, and critical thinking. By partnering with schools and educators, we aim to foster a culture of lifelong learning and equip students with the skills and knowledge they need to thrive in an ever-changing world.",
+                servicesDescription: "Pekka provides and repairs computers and devices that are loaned to associated schools. We strive to offer high-quality products and exceptional service to ensure that educational institutions have access to reliable and up-to-date technology.",
+                contactDescription: "",
+                aboutDescription:""
+            },
+            es: {
+                home: "Inicio",
+                about: "Sobre nosotros",
+                services: "Servicios",
+                contact: "Contacto",
+                language: "Idioma",
+                aboutPekka: "Sobre Pekka",
+                servicesPekka: "Nuestros Servicios",
+                contactPekka: "Contáctenos",
+                affiliatedCompanies: "Empresas Asociadas",
+                affiliatedText: "Varias empresas de renombre han depositado su confianza en nosotros debido a nuestra excepcional calidad de productos, atención al detalle y compromiso con la innovación.",
+                description: "Pekka es un proveedor líder de soluciones tecnológicas educativas, especializado en distribuir computadoras y otras tecnologías avanzadas a escuelas y centros educativos. Nuestra misión es capacitar a educadores y estudiantes con herramientas innovadoras que mejoren las experiencias de aprendizaje y preparen las futuras generaciones para el éxito en la era digital. Con un equipo dedicado de expertos y un compromiso con la calidad, Pekka se esfuerza por ofrecer productos de primera línea y un servicio excepcional a instituciones educativas en todo el mundo. Desde pizarras interactivas hasta dispositivos tablet y sistemas de realidad virtual, ofrecemos una amplia gama de soluciones adaptadas para satisfacer las diversas necesidades de las aulas modernas. En Pekka, creemos que la tecnología tiene el poder de revolucionar la educación e inspirar la creatividad, la colaboración y el pensamiento crítico. Al asociarnos con escuelas y educadores, nuestro objetivo es fomentar una cultura de aprendizaje permanente y equipar a los estudiantes con las habilidades y conocimientos que necesitan para prosperar en un mundo en constante cambio.",
+                servicesDescription: "Pekka provee y repara ordenadores y dispositivos que presta a las escuelas de las cuales están asociadas. Nos esforzamos por ofrecer productos de alta calidad y un servicio excepcional para garantizar que las instituciones educativas tengan acceso a tecnología confiable y actualizada.",
+                contactDescription: "",
+                aboutDescription:""
+            },
+            ca: {
+                home: "Inici",
+                about: "Sobre nosaltres",
+                services: "Serveis",
+                contact: "Contacte",
+                language: "Idioma",
+                aboutPekka: "Sobre Pekka",
+                servicesPekka: "Els nostres serveis",
+                contactPekka: "Contacta'ns",
+                affiliatedCompanies: "Empreses Associades",
+                affiliatedText: "Diverses empreses de renom han dipositat la seva confiança en nosaltres a causa de la nostra excepcional qualitat de productes, atenció al detall i compromís amb la innovació.",
+                description: "Pekka és un proveïdor líder de solucions tecnològiques educatives, especialitzat en distribuir ordinadors i altres tecnologies avançades a escoles i centres educatius. La nostra missió és capacitar educadors i estudiants amb eines innovadores que millorin les experiències d'aprenentatge i preparin les futures generacions per a l'èxit en l'era digital. Amb un equip dedicat d'experts i un compromís amb la qualitat, Pekka esforça per oferir productes de vanguardia i un servei excepcional a institucions educatives arreu del món. Des de pissarres interactives fins a dispositius tablet i sistemes de realitat virtual, oferim una àmplia gamma de solucions adaptades per satisfer les diverses necessitats de les aules modernes. A Pekka, creiem que la tecnologia té el poder de revolucionar l'educació i inspirar la creativitat, la col·laboració i el pensament crític. Al associar-nos amb escoles i educadors, el nostre objectiu és fomentar una cultura d'aprenentatge permanent i equipar els estudiants amb les habilitats i coneixements que necessiten per prosperar en un món en constant canvi.",
+                servicesDescription: "Pekka proveeix i repara ordinadors i dispositius que presta a les escoles de les quals estan associades. Ens esforcem per oferir productes d'alta qualitat i un servei excepcional per garantir que les institucions educatives tinguin accés a tecnologia fiable i actualitzada.",                
+                contactDescription: "Script de contacte amb PHP",
+                aboutDescription:"Text sobre el nostre equip"
+            }
+        };
+
         function fadeInAnimation() {
-       const content = document.getElementById('Confronting-Yourself');
-       content.classList.remove('fadeInContent');
-        void content.offsetWidth;
-      content.classList.add('fadeInContent');
-}
-    
+            const content = document.getElementById('Confronting-Yourself');
+            content.classList.remove('fadeInContent');
+            void content.offsetWidth;
+            content.classList.add('fadeInContent');
+        }
+
         const links = document.querySelectorAll('a');
         links.forEach(link => {
             link.addEventListener('click', fadeInAnimation);
         });
-    
+
         window.addEventListener('scroll', function() {
             const header = document.getElementById('main-header');
             if (window.scrollY > 0) {
@@ -245,31 +296,7 @@
                 header.style.top = '0';
             }
         });
-    
-        const texts = {
-            en: {
-                home: "Home",
-                about: "About",
-                services: "Services",
-                contact: "Contact",
-                language: "Language"
-            },
-            es: {
-                home: "Inicio",
-                about: "Sobre nosotros",
-                services: "Servicios",
-                contact: "Contacto",
-                language: "Idioma"
-            },
-            ca: {
-                home: "Inici",
-                about: "Sobre nosaltres",
-                services: "Serveis",
-                contact: "Contacte",
-                language: "Idioma"
-            }
-        };
-    
+
         function loadText(section) {
             const selectedLanguage = document.documentElement.lang;
             document.getElementById("home-link").textContent = texts[selectedLanguage].home;
@@ -277,21 +304,67 @@
             document.getElementById("services-link").textContent = texts[selectedLanguage].services;
             document.getElementById("contact-link").textContent = texts[selectedLanguage].contact;
             document.getElementById("language-toggle").textContent = texts[selectedLanguage].language;
-    
-            document.getElementById("description").innerText = texts[selectedLanguage][section];
-            document.getElementById("about-heading").innerText = texts[selectedLanguage]["about-heading"];
+
+            let aboutText;
+            if (section === 'about') {
+                aboutText = texts[selectedLanguage].aboutPekka;
+            } else if (section === 'services') {
+                aboutText = texts[selectedLanguage].servicesPekka;
+            } else if (section === 'contact') {
+                aboutText = texts[selectedLanguage].contactPekka;
+            } else if (section === 'language.toggle') {
+                 
+            } else {
+                aboutText = texts[selectedLanguage].aboutPekka;
+            }
+            const aboutHeading = document.getElementById("about-heading");
+            if (aboutHeading) {
+                let aboutText;
+                if (section === 'about') {
+                    aboutText = texts[selectedLanguage].aboutPekka;
+                } else if (section === 'services') {
+                    aboutText = texts[selectedLanguage].servicesPekka;
+                } else if (section === 'contact') {
+                    aboutText = texts[selectedLanguage].contactDescription;
+                } else if (section === 'language.toggle') {
+                    // Manejar el caso 'language.toggle' aquí
+                } else {
+                    aboutText = texts[selectedLanguage].aboutPekka;
+                }
+                aboutHeading.innerText = aboutText;
+            }
+            document.getElementById("about-heading").innerText = aboutText;
+            const descriptionText = texts[selectedLanguage].description;
+            document.getElementById("description").innerText = descriptionText; 
+
+            document.getElementById("affiliated-heading").innerText = texts[selectedLanguage].affiliatedCompanies;
+            document.getElementById("affiliated-text").innerText = texts[selectedLanguage].affiliatedText;
+
+            if (section === 'services') {
+                const servicesDescriptionText = texts[selectedLanguage].servicesDescription;
+                document.getElementById("description").innerText = servicesDescriptionText;
+            }
+            if (section === 'contact') {
+                const contactDescriptionText = texts[selectedLanguage].contactDescription;
+                document.getElementById("description").innerText = contactDescriptionText;
+            }
+            if (section === 'about') {
+                const aboutDescriptionText = texts[selectedLanguage].aboutDescription;
+                document.getElementById("description").innerText = aboutDescriptionText;
+            }
+
         }
-    
+
         function changeLanguage(lang) {
             document.documentElement.lang = lang;
             const currentSection = getCurrentSection();
             loadText(currentSection);
         }
-    
+
         function getCurrentSection() {
             return 'home';
         }
-    
+
         document.addEventListener("DOMContentLoaded", function() {
             const currentSection = getCurrentSection();
             loadText(currentSection);
