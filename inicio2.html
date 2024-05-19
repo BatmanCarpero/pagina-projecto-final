@@ -184,21 +184,61 @@
     left: 25px; 
     z-index: 1001; 
 }
+        #formulario {
+            margin-left: 200px;
+            margin-right: 200px;
+            border-top: 2px solid black;
+            border-right: 2px solid black;
+            border-bottom: 2px solid black;
+            border-left: 2px solid black;
+        }
+        #formulario form {
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-bottom: 10px;
 
+        }
+            #formulario input {
+                border-radius: 18px;
+            }
+            #formulario textarea {
+                border-radius: 18px;
+            }
+            #formulario button {
+                position: relative;
+                display: block;
+                width: 200px;
+                height: 36px;
+                border-radius: 18px;
+                background-color: #1c89ff;
+                border: solid 1px transparent;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 300;
+                cursor: pointer;
+                transition: all .1s ease-in-out;
+                &:hover
 
+        {
+            background-color: #00008B;
+            border-color: #fff;
+            transition: all .1s ease-in-out;
+        }
+            }
     </style>
 </head>
 <body id="Confronting-Yourself">
     <header id="main-header">
         <h1>ㅤ</h1>
-        <img id="logopeda" src="logo.png" alt="logo" >
+        <img id="logopeda" src="logo.png" alt="logo">
         <nav>
             <ul>
                 <li><a href="#" id="home-link" onclick="loadText('home')">Home</a></li>
                 <li><a href="#" id="about-link" onclick="loadText('about')">About</a></li>
                 <li><a href="#" id="services-link" onclick="loadText('services')">Services</a></li>
-                <li><a href="#" id="contact-link" onclick="loadText('contact')">Contact</a></li>                
-                <li><a href="#" id="language-toggle">Language</a>
+                <li><a href="#" id="contact-link" onclick="loadText('contact')">Contact</a></li>
+                <li>
+                    <a href="#" id="language-toggle">Language</a>
                     <div class="language-selector" id="language-selector">
                         <ul>
                             <li><a href="#" onclick="changeLanguage('ca')"><img src="cat.png" alt="catala">Catalan</a></li>
@@ -208,7 +248,7 @@
                     </div>
                 </li>
             </ul>
-        </nav>
+        </nav>                                                
     </header>
     <div id="video-container">
         <video autoplay loop muted>
@@ -219,6 +259,32 @@
         <h2 id="about-heading">PEKKA OS</h2>
         <p id="description">PEKKA OS is a leading provider of educational technology solutions, specializing in distributing computers and other advanced technologies to schools and educational centers. Our mission is to empower educators and students with innovative tools that enhance learning experiences and prepare future generations for success in the digital age. With a dedicated team of experts and a commitment to quality, PEKKA OS strives to deliver cutting-edge products and exceptional service to educational institutions worldwide. From interactive whiteboards to tablet devices and virtual reality systems, we offer a comprehensive range of solutions tailored to meet the diverse needs of modern classrooms. At PEKKA OS, we believe that technology has the power to revolutionize education and inspire creativity, collaboration, and critical thinking. By partnering with schools and educators, we aim to foster a culture of lifelong learning and equip students with the skills and knowledge they need to thrive in an ever-changing world.</p>
     </section>
+
+
+    <section id="formulario" style="display: none;">
+        <form action="send_email.php" method="post">
+            <label for="name">Nombre:
+            </label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <br>
+            <label for="email">Correo Electrónico:
+            </label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <br>
+            <label for="message">Mensaje:
+            </label>
+            <textarea id="message" name="message" required>
+            </textarea>
+            <br>
+            <br>
+            <button type="submit">Enviar
+            </button>
+        </form>
+    </section>
+
+
 
     <section id="affiliated-companies">
         <h2 id="affiliated-heading">Affiliated Companies</h2>
@@ -254,7 +320,7 @@
                 description: "PEKKA OS is a leading provider of educational technology solutions, specializing in distributing computers and other advanced technologies to schools and educational centers. Our mission is to empower educators and students with innovative tools that enhance learning experiences and prepare future generations for success in the digital age. With a dedicated team of experts and a commitment to quality, PEKKA OS strives to deliver cutting-edge products and exceptional service to educational institutions worldwide. From interactive whiteboards to tablet devices and virtual reality systems, we offer a comprehensive range of solutions tailored to meet the diverse needs of modern classrooms. At PEKKA OS, we believe that technology has the power to revolutionize education and inspire creativity, collaboration, and critical thinking. By partnering with schools and educators, we aim to foster a culture of lifelong learning and equip students with the skills and knowledge they need to thrive in an ever-changing world.",
                 servicesDescription: "PEKKA OS provides and repairs computers and devices that are loaned to associated schools. We strive to offer high-quality products and exceptional service to ensure that educational institutions have access to reliable and up-to-date technology.",
                 contactDescription: "",
-                aboutDescription:"In PEKKA OS, we are proud to introduce our dedicated and talented team. You will meet three exceptional individuals who play vital roles in our company: Geancarlo, Daniel, and Judit.\n\nGeancarlo is a valuable member of our team, bringing a unique combination of technical skills and leadership. With solid experience in project management, Geancarlo is known for his meticulous approach and his ability to solve problems effectively. His passion for innovation and commitment to excellence make him an invaluable asset to PEKKA OS.\n\nDaniel is another cornerstone of our team. His dedication and attention to detail are unparalleled, making him an indispensable resource in all our operations. With an analytical mind and impeccable work ethic, Daniel ensures that each task is completed with precision and efficiency.\n\nLast but not least, we introduce Judit. With her exceptional creativity and communication skills, Judit plays a key role in developing innovative marketing strategies for PEKKA OS. Her ability to think outside the box and her results-oriented approach are crucial to the continued success of our company.\n\nTogether, Geancarlo, Daniel, and Judit embody the core values of PEKKA OS: dedication, excellence, and teamwork. We are grateful for their hard work and commitment, and we look forward to continuing to grow and thrive together in the future."
+                aboutDescription: "In PEKKA OS, we are proud to introduce our dedicated and talented team. You will meet three exceptional individuals who play vital roles in our company: Geancarlo, Daniel, and Judit.\n\nGeancarlo is a valuable member of our team, bringing a unique combination of technical skills and leadership. With solid experience in project management, Geancarlo is known for his meticulous approach and his ability to solve problems effectively. His passion for innovation and commitment to excellence make him an invaluable asset to PEKKA OS.\n\nDaniel is another cornerstone of our team. His dedication and attention to detail are unparalleled, making him an indispensable resource in all our operations. With an analytical mind and impeccable work ethic, Daniel ensures that each task is completed with precision and efficiency.\n\nLast but not least, we introduce Judit. With her exceptional creativity and communication skills, Judit plays a key role in developing innovative marketing strategies for PEKKA OS. Her ability to think outside the box and her results-oriented approach are crucial to the continued success of our company.\n\nTogether, Geancarlo, Daniel, and Judit embody the core values of PEKKA OS: dedication, excellence, and teamwork. We are grateful for their hard work and commitment, and we look forward to continuing to grow and thrive together in the future."
             },
             es: {
                 home: "Inicio",
@@ -271,7 +337,7 @@
                 description: "PEKKA OS es un proveedor líder de soluciones tecnológicas educativas, especializado en distribuir computadoras y otras tecnologías avanzadas a escuelas y centros educativos. Nuestra misión es capacitar a educadores y estudiantes con herramientas innovadoras que mejoren las experiencias de aprendizaje y preparen las futuras generaciones para el éxito en la era digital. Con un equipo dedicado de expertos y un compromiso con la calidad, PEKKA OS se esfuerza por ofrecer productos de primera línea y un servicio excepcional a instituciones educativas en todo el mundo. Desde pizarras interactivas hasta dispositivos tablet y sistemas de realidad virtual, ofrecemos una amplia gama de soluciones adaptadas para satisfacer las diversas necesidades de las aulas modernas. En PEKKA OS, creemos que la tecnología tiene el poder de revolucionar la educación e inspirar la creatividad, la colaboración y el pensamiento crítico. Al asociarnos con escuelas y educadores, nuestro objetivo es fomentar una cultura de aprendizaje permanente y equipar a los estudiantes con las habilidades y conocimientos que necesitan para prosperar en un mundo en constante cambio.",
                 servicesDescription: "PEKKA OS provee y repara ordenadores y dispositivos que presta a las escuelas de las cuales están asociadas. Nos esforzamos por ofrecer productos de alta calidad y un servicio excepcional para garantizar que las instituciones educativas tengan acceso a tecnología confiable y actualizada.",
                 contactDescription: "",
-                aboutDescription:"En PEKKA OS, nos enorgullece presentarles a nuestro equipo de trabajo dedicado y talentoso. Conocerán a tres individuos excepcionales que desempeñan roles vitales en nuestra empresa: Geancarlo, Daniel y Judit. \n \n Geancarlo es un miembro valioso de nuestro equipo, aportando una combinación única de habilidades técnicas y liderazgo. Con una sólida experiencia en gestión de proyectos, Geancarlo es conocido por su enfoque meticuloso y su capacidad para resolver problemas de manera efectiva. Su pasión por la innovación y su compromiso con la excelencia hacen de él un activo invaluable para PEKKA OS. \n \n Daniel es otro pilar fundamental en nuestro equipo. Su dedicación y atención al detalle son insuperables, lo que lo convierte en un recurso indispensable en todas nuestras operaciones. Con una mente analítica y una ética de trabajo impecable, Daniel garantiza que cada tarea se complete con precisión y eficiencia. \n \n Finalmente, pero no menos importante, presentamos a Judit. Con su creatividad y habilidades comunicativas excepcionales, Judit desempeña un papel fundamental en el desarrollo de estrategias de marketing innovadoras para PEKKA OS. Su capacidad para pensar de manera fuera de lo común y su enfoque orientado a resultados son fundamentales para el éxito continuo de nuestra empresa. \n \n En conjunto, Geancarlo, Daniel y Judit personifican los valores fundamentales de PEKKA OS: dedicación, excelencia y trabajo en equipo. Estamos agradecidos por su arduo trabajo y compromiso, y esperamos continuar creciendo y prosperando juntos en el futuro."
+                aboutDescription: "En PEKKA OS, nos enorgullece presentarles a nuestro equipo de trabajo dedicado y talentoso. Conocerán a tres individuos excepcionales que desempeñan roles vitales en nuestra empresa: Geancarlo, Daniel y Judit. \n \n Geancarlo es un miembro valioso de nuestro equipo, aportando una combinación única de habilidades técnicas y liderazgo. Con una sólida experiencia en gestión de proyectos, Geancarlo es conocido por su enfoque meticuloso y su capacidad para resolver problemas de manera efectiva. Su pasión por la innovación y su compromiso con la excelencia hacen de él un activo invaluable para PEKKA OS. \n \n Daniel es otro pilar fundamental en nuestro equipo. Su dedicación y atención al detalle son insuperables, lo que lo convierte en un recurso indispensable en todas nuestras operaciones. Con una mente analítica y una ética de trabajo impecable, Daniel garantiza que cada tarea se complete con precisión y eficiencia. \n \n Finalmente, pero no menos importante, presentamos a Judit. Con su creatividad y habilidades comunicativas excepcionales, Judit desempeña un papel fundamental en el desarrollo de estrategias de marketing innovadoras para PEKKA OS. Su capacidad para pensar de manera fuera de lo común y su enfoque orientado a resultados son fundamentales para el éxito continuo de nuestra empresa. \n \n En conjunto, Geancarlo, Daniel y Judit personifican los valores fundamentales de PEKKA OS: dedicación, excelencia y trabajo en equipo. Estamos agradecidos por su arduo trabajo y compromiso, y esperamos continuar creciendo y prosperando juntos en el futuro."
             },
             ca: {
                 home: "Inici",
@@ -286,9 +352,9 @@
                 affiliatedCompanies: "Empreses Associades",
                 affiliatedText: "Diverses empreses de renom han dipositat la seva confiança en nosaltres a causa de la nostra excepcional qualitat de productes, atenció al detall i compromís amb la innovació.",
                 description: "PEKKA OS és un proveïdor líder de solucions tecnològiques educatives, especialitzat en distribuir ordinadors i altres tecnologies avançades a escoles i centres educatius. La nostra missió és capacitar educadors i estudiants amb eines innovadores que millorin les experiències d'aprenentatge i preparin les futures generacions per a l'èxit en l'era digital. Amb un equip dedicat d'experts i un compromís amb la qualitat, PEKKA OS esforça per oferir productes de vanguardia i un servei excepcional a institucions educatives arreu del món. Des de pissarres interactives fins a dispositius tablet i sistemes de realitat virtual, oferim una àmplia gamma de solucions adaptades per satisfer les diverses necessitats de les aules modernes. A PEKKA OS, creiem que la tecnologia té el poder de revolucionar l'educació i inspirar la creativitat, la col·laboració i el pensament crític. Al associar-nos amb escoles i educadors, el nostre objectiu és fomentar una cultura d'aprenentatge permanent i equipar els estudiants amb les habilitats i coneixements que necessiten per prosperar en un món en constant canvi.",
-                servicesDescription: "PEKKA OS proveeix i repara ordinadors i dispositius que presta a les escoles de les quals estan associades. Ens esforcem per oferir productes d'alta qualitat i un servei excepcional per garantir que les institucions educatives tinguin accés a tecnologia fiable i actualitzada.",                
-                contactDescription: "Script de contacte amb PHP",
-                aboutDescription:"A PEKKA OS, estem orgullosos de presentar el nostre equip de treball dedicat i talentós. Coneixeràs tres individuals excepcionals que exerceixen rols vitals a la nostra empresa: Geancarlo, Daniel i Judit.\n\nGeancarlo és un membre valuós del nostre equip, que aporta una combinació única de habilitats tècniques i lideratge. Amb una sòlida experiència en gestió de projectes, Geancarlo és conegut pel seu enfocament meticulós i la seva capacitat per resoldre problemes de manera efectiva. La seva passió per la innovació i el seu compromís amb l'excel·lència el converteixen en un actiu inestimable per a PEKKA OS.\n\nDaniel és un altre pilar fonamental del nostre equip. La seva dedicació i atenció als detalls són insuperables, el que el converteix en un recurs indispensable en totes les nostres operacions. Amb una ment analítica i una ètica de treball impecable, Daniel garanteix que cada tasca es completi amb precisió i eficiència.\n\nPer últim, però no menys important, presentem a Judit. Amb la seva excepcional creativitat i habilitats comunicatives, Judit exerceix un paper clau en el desenvolupament d'estratègies de màrqueting innovadores per a PEKKA OS. La seva capacitat per pensar de manera fora de l'habitual i el seu enfocament orientat a resultats són crucials per a la continuïtat de l'èxit de la nostra empresa.\n\nJunts, Geancarlo, Daniel i Judit personifiquen els valors fonamentals de PEKKA OS: dedicació, excel·lència i treball en equip. Estem agraïts pel seu dur treball i compromís, i esperem continuar creixent i prosperant junts en el futur."
+                servicesDescription: "PEKKA OS proveeix i repara ordinadors i dispositius que presta a les escoles de les quals estan associades. Ens esforcem per oferir productes d'alta qualitat i un servei excepcional per garantir que les institucions educatives tinguin accés a tecnologia fiable i actualitzada.",
+                contactDescription: "",
+                aboutDescription: "A PEKKA OS, estem orgullosos de presentar el nostre equip de treball dedicat i talentós. Coneixeràs tres individuals excepcionals que exerceixen rols vitals a la nostra empresa: Geancarlo, Daniel i Judit.\n\nGeancarlo és un membre valuós del nostre equip, que aporta una combinació única de habilitats tècniques i lideratge. Amb una sòlida experiència en gestió de projectes, Geancarlo és conegut pel seu enfocament meticulós i la seva capacitat per resoldre problemes de manera efectiva. La seva passió per la innovació i el seu compromís amb l'excel·lència el converteixen en un actiu inestimable per a PEKKA OS.\n\nDaniel és un altre pilar fonamental del nostre equip. La seva dedicació i atenció als detalls són insuperables, el que el converteix en un recurs indispensable en totes les nostres operacions. Amb una ment analítica i una ètica de treball impecable, Daniel garanteix que cada tasca es completi amb precisió i eficiència.\n\nPer últim, però no menys important, presentem a Judit. Amb la seva excepcional creativitat i habilitats comunicatives, Judit exerceix un paper clau en el desenvolupament d'estratègies de màrqueting innovadores per a PEKKA OS. La seva capacitat per pensar de manera fora de l'habitual i el seu enfocament orientat a resultats són crucials per a la continuïtat de l'èxit de la nostra empresa.\n\nJunts, Geancarlo, Daniel i Judit personifiquen els valors fonamentals de PEKKA OS: dedicació, excel·lència i treball en equip. Estem agraïts pel seu dur treball i compromís, i esperem continuar creixent i prosperant junts en el futur."
             }
         };
 
@@ -304,17 +370,18 @@
             link.addEventListener('click', fadeInAnimation);
         });
 
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const header = document.getElementById('main-header');
             if (window.scrollY > 0) {
-                header.style.top = '-90px'; 
+                header.style.top = '-90px';
             } else {
                 header.style.top = '0';
             }
         });
-//ola
+        //ola
         function loadText(section) {
             const selectedLanguage = document.documentElement.lang;
+            const formSection = document.getElementById('formulario');
             document.getElementById("home-link").textContent = texts[selectedLanguage].home;
             document.getElementById("about-link").textContent = texts[selectedLanguage].about;
             document.getElementById("services-link").textContent = texts[selectedLanguage].services;
@@ -328,17 +395,18 @@
                 aboutText = texts[selectedLanguage].servicesPekka;
             } else if (section === 'contact') {
                 aboutText = texts[selectedLanguage].contactPekka;
-                aboutText = texts[selectedLanguage].contactDescription;
+                
             } else if (section === 'language.toggle') {
-                 
+
             } else {
                 aboutText = texts[selectedLanguage].IniciPekka;
+                formSection.style.display = 'none';
             }
             const aboutHeading = document.getElementById("about-heading");
 
             document.getElementById("about-heading").innerText = aboutText;
             const descriptionText = texts[selectedLanguage].description;
-            document.getElementById("description").innerText = descriptionText; 
+            document.getElementById("description").innerText = descriptionText;
 
             document.getElementById("affiliated-heading").innerText = texts[selectedLanguage].affiliatedCompanies;
             document.getElementById("affiliated-text").innerText = texts[selectedLanguage].affiliatedText;
@@ -346,14 +414,17 @@
             if (section === 'services') {
                 const servicesDescriptionText = texts[selectedLanguage].servicesDescription;
                 document.getElementById("description").innerText = servicesDescriptionText;
+                formSection.style.display = 'none';
             }
             if (section === 'contact') {
                 const contactDescriptionText = texts[selectedLanguage].contactDescription;
                 document.getElementById("description").innerText = contactDescriptionText;
+                formSection.style.display = 'block';
             }
             if (section === 'about') {
                 const aboutDescriptionText = texts[selectedLanguage].aboutDescription;
                 document.getElementById("description").innerText = aboutDescriptionText;
+                formSection.style.display = 'none';
             }
 
         }
@@ -368,10 +439,51 @@
             return 'home';
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
+
+ 
+
+
+        document.addEventListener("DOMContentLoaded", function () {
             const currentSection = getCurrentSection();
             loadText(currentSection);
         });
+
+
+
     </script>
+
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Datos del formulario
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+
+    // Destinatario
+    $to = "tucorreo@gmail.com";
+
+    // Asunto del correo
+    $subject = "Nuevo mensaje de $name";
+
+    // Cuerpo del correo
+    $body = "Nombre: $name\nCorreo: $email\n\nMensaje:\n$message";
+
+    // Encabezados del correo
+    $headers = "From: $email\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
+
+    // Enviar el correo
+    if (mail($to, $subject, $body, $headers)) {
+    echo "Correo enviado con éxito.";
+    } else {
+    echo "Hubo un error al enviar el correo.";
+    }
+    } else {
+    echo "Método de solicitud no permitido.";
+    }
+    ?>
+
 </body>
 </html>
